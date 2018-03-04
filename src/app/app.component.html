@@ -1,0 +1,9 @@
+<div class="container">
+
+    <!-- Customer info component -->
+    <app-customer-info [customer]="customer"></app-customer-info>
+
+    <!-- Customer table component -->
+    <app-customer-table (emitCustomer)="receiveCustomer($event)"></app-customer-table>
+
+</div><!-- END .container -->

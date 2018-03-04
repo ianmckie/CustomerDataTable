@@ -1,0 +1,13 @@
+<div class="graph-container">
+  <div class="graph-y-container">
+    <div class="graph-y" *ngFor='let graphYUnit of graphYUnits.reverse(); let i of index'>
+        <span>
+          {{ graphYUnit }}
+        </span>
+      </div>
+  </div>
+  <div class="graph-x-container">
+    <div class="graph-x" *ngFor="let key of graphXUnits | keys; let i of index" [style.height.%]="( ( graphXUnits[key] / 1000 ) * 100 )">
+    </div>
+  </div>
+</div>

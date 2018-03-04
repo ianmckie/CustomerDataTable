@@ -1,0 +1,16 @@
+<div class="customer-info-wrapper">
+  <div class="row">
+      <div class="col">
+          <h2>{{ customer.name}}</h2>
+          <div class="customer-info">
+            <div class="info"><h5>Email Address:</h5> {{ customer.email }}</div>
+            <div class="info"><h5>Postal Address:</h5> {{ customer.address}}</div>
+            <div class="info"><h5>Phone Number:</h5> {{ customer.phone }}</div>
+            <div class="info"><h5>Favourite Band:</h5> {{ customer.favoriteBand }}</div>
+          </div>
+      </div><!-- END .col -->
+      <div class="col">
+        <app-graph [graphXUnits]="customer.numberOfPosts || []"></app-graph>
+      </div><!-- END .col -->
+    </div> <!-- END .row -->
+</div>

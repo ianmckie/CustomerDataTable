@@ -1,0 +1,48 @@
+
+<div class="customer-table-wrapper">
+  <h2>User Information</h2>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Account Number</th>
+      <th>Country</th>
+      <th>Join Date</th>
+    </tr>
+    <tr *ngFor="let customer of customers | slice:this.start:this.finish; let i = index" [class.active]="sIndex === i" 
+    (click)="setIndex(i)" (click)="sendCustomer(customer)">
+      <td>
+        <input id="{{customer._id}}" class="checkbox-custom" name="radio-group" type="radio">
+        <label for="{{customer._id}}" class="checkbox-custom-label"></label>
+      </td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.accountNumber }}</td>
+      <td>{{ customer.country }}</td>
+      <td>{{ customer.registered }}</td>
+    </tr>
+  </table>
+</div><!-- END .customer-table-wrapper -->
+
+<div class="pagination-wrapper">
+  <div class="row">
+    <div class="col-md-7"></div>
+    <div class="limit-dropdown col-md-3">
+        Rows per page
+        <!-- on change send back the selected option value -->
+        <select class='select-option custom-select' [(ngModel)]='optionSelected' (ngModelChange)='onOptionsSelected($event)'>
+            <option class='option' *ngFor='let option of options' [value]="option">{{option}}</option>
+        </select>
+    </div><!-- END .limit-dropdown-->
+
+    <div class="pages col-md-2">
+      {{ start + 1 }} - {{ finish }} of {{ customersAmount }}
+      
+      <!-- onClick go to previous page -->
+      <div class="page-controls prev" (click)="changePage('prev')"></div>
+      
+      <!-- onClick go to next page -->
+      <div class="page-controls next" (click)="changePage('next')"></div>
+
+    </div><!-- END .pages-->
+  </div>
+</div><!-- END .pagination-wrapper-->
